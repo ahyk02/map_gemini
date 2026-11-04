@@ -39,7 +39,8 @@ if uploaded_file:
     st.subheader(f"📊 '{selected_category}' 입지 경쟁도 분석")
     col1, col2 = st.columns(2)
     with col1:
-        st.metric("해당 업종 점포 수", f"{selected_count}개")
+        # 에러 우회를 위해 metric 대신 markdown 사용
+        st.markdown(f"### 🏪 해당 업종 점포 수\n**{selected_count}개**")
     with col2:
         if rank_pct <= 20:
             st.error(f"🚨 **레드오션 (상위 {rank_pct:.1f}%)**: 점포가 포화 상태로 경쟁이 매우 치열합니다.")
